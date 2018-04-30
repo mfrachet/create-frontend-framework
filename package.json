@@ -1,0 +1,19 @@
+{
+  "name": "htmlTemplates",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mfrachet <marvin.frachet@zenika.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf build/ && parcel build index.js -d build/",
+    "serve": "rm -rf .cache && rm -rf dist && parcel serve index.html"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.7.1",
+    "snabbdom": "^0.7.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
