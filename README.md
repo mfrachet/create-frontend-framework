@@ -161,3 +161,102 @@ export const init = (selector, component) => {
   patch(app, component.template);
 };
 ```
+
+Before getting further, let's refacto a bit `./framework/element.js` for clarity purpose:
+
+```javascript
+import h from "snabbdom/h";
+
+const initialState = {
+  template: ""
+};
+
+const createReducer = args => (acc, currentString, index) => ({
+  ...acc,
+  template: acc.template + currentString + (args[index] || "")
+});
+
+const createElement = tagName => (strings, ...args) => {
+  const { template } = strings.reduce(createReducer(args), initialState);
+
+  return {
+    type: "element",
+    template: h(tagName, {}, template)
+  };
+};
+
+export const div = createElement("div");
+export const p = createElement("p");
+```
+
+Now let's create a `onClick` event handler: create a file in `./framework/event.js` :
+
+```javascript
+export const onClick = f => ({
+  type: "event",
+  click: f
+});
+```
+
+And modify the `./src/user.js`:
+
+```javascript
+import { div } from "../framework/element";
+import { onClick } from "../framework/event";
+
+const firstName = "Marvin";
+const lastName = "Frachet";
+
+export const User = ({ firstName, lastName }) =>
+  div`${onClick(() => alert(firstName))} Hello ${firstName} ${lastName}`;
+```
+
+The result is ugly and displays the full function as a _string_. Let's make this work, in `./framework/element.js`:
+
+```javascript
+import h from "snabbdom/h";
+
+const initialState = {
+  template: "",
+  on: {}
+};
+
+const createReducer = args => (acc, currentString, index) => {
+  const currentArg = args[index];
+
+  if (currentArg && currentArg.type === "event") {
+    return { ...acc, on: { click: currentArg.click } };
+  }
+
+  return {
+    ...acc,
+    template: acc.template + currentString + (args[index] || "")
+  };
+};
+
+const createElement = tagName => (strings, ...args) => {
+  const { template, on } = strings.reduce(createReducer(args), initialState);
+
+  return {
+    type: "element",
+    template: h(tagName, { on }, template)
+  };
+};
+
+export const div = createElement("div");
+export const p = createElement("p");
+```
+
+Now we need to tell snabbdom that we want to use its own internal events system (it's snabbdom related), in `./framework/index.js`, add:
+
+```javascript
+import * as snabbdom from "snabbdom";
+const patch = snabbdom.init([
+  require("snabbdom/modules/eventlisteners").default
+]);
+
+export const init = (selector, component) => {
+  const app = document.querySelector(selector);
+  patch(app, component.template);
+};
+```
