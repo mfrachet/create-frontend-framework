@@ -97,4 +97,34 @@ init("#app", div`Hello ${firstName} ${lastName}`);
 // init("#app", p`Hello ${firstName} ${lastName}`); works as simply as moving div to p
 ```
 
+Let's now create our first component in `./src/user.js`:
+
+```javascript
+import { div } from "../framework/element";
+
+const firstName = "Marvin";
+const lastName = "Frachet";
+
+export const User = ({ firstName, lastName }) =>
+  div`Hello ${firstName} ${lastName}`;
+```
+
+And so modify `./index.js`:
+
+```javascript
+import { init } from "./framework";
+import { User } from "./src/user";
+
+const firstName = "Marvin";
+const lastName = "Frachet";
+
+init("#app", User({ firstName, lastName }));
+```
+
+Available at
+
+```shell
+$ git checkout step-1
+```
+
 # Second step (adding VDOM)
