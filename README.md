@@ -260,3 +260,128 @@ export const init = (selector, component) => {
   patch(app, component.template);
 };
 ```
+
+# Third step (adding state management)
+
+We'll use a functional programming approach and add a new (shared) behaviour to our components using something called HOF:
+
+In `./framework/index.js`, create a function called `createComponent` that looks like:
+
+```javascript
+import * as snabbdom from "snabbdom";
+const patch = snabbdom.init([
+  require("snabbdom/modules/eventlisteners").default
+]);
+
+export const init = (selector, component) => {
+  const app = document.querySelector(selector);
+  patch(app, component.template);
+};
+
+export const createComponent = ({ template, methods = {} }) => props =>
+  template(props);
+```
+
+And move the `./src/user.js` to
+
+```javascript
+import { createComponent } from "../framework";
+import { div } from "../framework/element";
+import { onClick } from "../framework/event";
+
+const firstName = "Marvin";
+const lastName = "Frachet";
+
+const template = ({ firstName, lastName }) =>
+  div`${onClick(() => alert(firstName))} Hello ${firstName} ${lastName}`;
+
+export const User = createComponent({ template });
+```
+
+We're now able to add some behaviour to our components ! For example, we can add a some methods to it:
+
+In `./framework/index.js`, add the methods props:
+
+```javascript
+export const createComponent = ({ template, methods = {} }) => props =>
+  template({ ...props, methods });
+```
+
+It's now available in the component:
+
+```javascript
+import { createComponent } from "../framework";
+import { div } from "../framework/element";
+import { onClick } from "../framework/event";
+
+const firstName = "Marvin";
+const lastName = "Frachet";
+
+const methods = { callMe: name => alert(name) };
+
+const template = ({ firstName, lastName, methods }) =>
+  div`${onClick(() =>
+    methods.callMe(firstName)
+  )} Hello ${firstName} ${lastName}`;
+
+export const User = createComponent({ template, methods });
+```
+
+We can now make some special behaviour using these methods ! Why not to be able to modify the props ? In the `./framework/index.js`, add:
+
+```javascript
+import * as snabbdom from "snabbdom";
+const patch = snabbdom.init([
+  require("snabbdom/modules/eventlisteners").default
+]);
+
+export const init = (selector, component) => {
+  const app = document.querySelector(selector);
+  patch(app, component.template);
+};
+
+let state = {};
+
+export const createComponent = ({
+  template,
+  methods = {},
+  initialState = {}
+}) => {
+  state = initialState;
+
+  const mappedMethods = Object.keys(methods).reduce(
+    (acc, key) => ({
+      ...acc,
+      [key]: (...args) => {
+        state = methods[key](state, ...args);
+        console.log(state); // this prints "Thomas" as firstName :D
+        return state;
+      }
+    }),
+    {}
+  );
+
+  return props => template({ ...props, ...state, methods: mappedMethods });
+};
+```
+
+And let's now change the user component:
+
+```javascript
+import { createComponent } from "../framework";
+import { div } from "../framework/element";
+import { onClick } from "../framework/event";
+
+const firstName = "Marvin";
+const lastName = "Frachet";
+
+const methods = { changeName: (state, firstName) => ({ ...state, firstName }) };
+const initialState = { firstName: "Marvin", lastName: "Frachet" };
+
+const template = ({ firstName, lastName, methods }) =>
+  div`${onClick(() =>
+    methods.changeName("Thomas")
+  )} Hello ${firstName} ${lastName}`;
+
+export const User = createComponent({ template, methods, initialState });
+```
