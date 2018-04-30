@@ -1,8 +1,14 @@
+import h from "snabbdom/h";
+
 const createElement = tagName => (strings, ...args) => ({
   type: tagName,
-  template: strings.reduce(
-    (acc, currentString, index) => acc + currentString + (args[index] || ""),
-    ""
+  template: h(
+    tagName,
+    {},
+    strings.reduce(
+      (acc, currentString, index) => acc + currentString + (args[index] || ""),
+      ""
+    )
   )
 });
 
