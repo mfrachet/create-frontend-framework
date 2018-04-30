@@ -1,7 +1,7 @@
 import h from "snabbdom/h";
 
 const createElement = tagName => (strings, ...args) => ({
-  type: tagName,
+  type: "element",
   template: h(
     tagName,
     {},
