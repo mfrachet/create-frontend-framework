@@ -27,7 +27,7 @@ export const createComponent = ({
           const nextNode = template({
             ...props,
             ...state,
-            methods: mappedMethods
+            methods: mappedMethods(props)
           });
           patch(previous.template, nextNode.template);
           previous = nextNode; // this prints "Thomas" as firstName :D
