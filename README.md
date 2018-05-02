@@ -1,3 +1,5 @@
+[Slides available here](https://docs.google.com/presentation/d/1QeK3f9Ycae0oLG5CCgrLsYbxTNd7iamPBGkotvxWCzI/edit?usp=sharing)
+
 # Template litterals as template engine (tag: step-1)
 
 The first step is to create a folder and a file at `./framework/element.js`. We'll use template litterals a template engine. Let's create our first template litteral handler called `div`:
