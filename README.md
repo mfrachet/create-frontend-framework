@@ -1,5 +1,25 @@
 [Slides available here](https://docs.google.com/presentation/d/1QeK3f9Ycae0oLG5CCgrLsYbxTNd7iamPBGkotvxWCzI/edit?usp=sharing)
 
+_This project aims to provide a step by step implementation of a "frontend framework". It's only for learning purpose and allows to take a first shot of internal stuff such as templating, state management, and the use of Virtual DOMs._
+
+---
+
+* [Template (tag: step-1)](#template-tag-step-1)
+  * [Template litterals as template engine](#template-litterals-as-template-engine)
+  * [Display content in the DOM](#display-content-in-the-dom)
+  * [Our first component](#our-first-component)
+* [Using an existing virtual DOM library (tag: step-2)](#using-an-existing-virtual-dom-library-tag-step-2)
+  * [Adding Snabbdom](#adding-snabbdom)
+  * [Event handling](#event-handling)
+* [State management (tag: step-3)](#state-management-tag-step-3)
+  * [Using methods inside the component](#using-methods-inside-the-component)
+  * [Modifying the component props with state](#modifying-the-component-props-with-state)
+* [Last step bringing it all together](#last-step-bringing-it-all-together)
+
+<!-- /code_chunk_output -->
+
+---
+
 # Template (tag: step-1)
 
 ## Template litterals as template engine
