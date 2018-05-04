@@ -6,7 +6,8 @@ _This project aims to provide a step by step implementation of a "frontend frame
 
 * [Template](#template)
   * [Template litterals as template engine](#template-litterals-as-template-engine)
-  * [Display content in the DOM](#display-content-in-the-dom) \* [Our first component](#our-first-component)
+  * [Display content in the DOM](#display-content-in-the-dom)
+  * [Our first component](#our-first-component)
 * [Using an existing virtual DOM library](#using-an-existing-virtual-dom-library)
   * [Adding Snabbdom](#adding-snabbdom)
   * [Event handling](#event-handling)
