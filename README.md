@@ -4,23 +4,22 @@ _This project aims to provide a step by step implementation of a "frontend frame
 
 ---
 
-* [Template (tag: step-1)](#template-tag-step-1)
+* [Template](#template)
   * [Template litterals as template engine](#template-litterals-as-template-engine)
-  * [Display content in the DOM](#display-content-in-the-dom)
-  * [Our first component](#our-first-component)
-* [Using an existing virtual DOM library (tag: step-2)](#using-an-existing-virtual-dom-library-tag-step-2)
+  * [Display content in the DOM](#display-content-in-the-dom) \* [Our first component](#our-first-component)
+* [Using an existing virtual DOM library](#using-an-existing-virtual-dom-library)
   * [Adding Snabbdom](#adding-snabbdom)
   * [Event handling](#event-handling)
-* [State management (tag: step-3)](#state-management-tag-step-3)
+* [State management](#state-management)
   * [Using methods inside the component](#using-methods-inside-the-component)
   * [Modifying the component props with state](#modifying-the-component-props-with-state)
 * [Last step bringing it all together](#last-step-bringing-it-all-together)
 
-<!-- /code_chunk_output -->
-
 ---
 
-# Template (tag: step-1)
+# Template
+
+_Available at `$ git checkout step-1`_
 
 ## Template litterals as template engine
 
@@ -156,7 +155,9 @@ const lastName = "Frachet";
 init("#app", User({ firstName, lastName }));
 ```
 
-# Using an existing virtual DOM library (tag: step-2)
+# Using an existing virtual DOM library
+
+_Available at `$ git checkout step-2`_
 
 ## Adding Snabbdom
 
@@ -310,7 +311,9 @@ export const init = (selector, component) => {
 };
 ```
 
-# State management (tag: step-3)
+# State management
+
+_Available at `$ git checkout step-3`_
 
 The state of an application is kind of like a snapshot of it at a specific time.
 Let's represent it from a programming point of view:
@@ -463,6 +466,8 @@ export const User = createComponent({ template, methods, initialState });
 ```
 
 # Last step bringing it all together
+
+_Available at `$ git checkout step-4`_
 
 In `./framework/index.js`, add :
 
