@@ -1,44 +1,26 @@
 import * as snabbdom from "snabbdom";
-const patch = snabbdom.init([
-  require("snabbdom/modules/eventlisteners").default
-]);
+import h from "snabbdom/h";
+import { mappingAttributes } from "./attributes";
+import { Component } from "./component";
+import classModule from "snabbdom/modules/class";
+import eventModule from "snabbdom/modules/eventlisteners";
 
-export const init = (selector, component) => {
-  const app = document.querySelector(selector);
-  patch(app, component.template);
+global.h = (tagName, attrs = {}, ...children) => {
+  return h(
+    tagName,
+    Object.keys(attrs).reduce(mappingAttributes(attrs), { class: {}, on: {} }),
+    children
+  );
 };
 
-let state = {};
+const patch = snabbdom.init([classModule, eventModule]);
 
-export const createComponent = ({
-  template,
-  methods = {},
-  initialState = {}
-}) => {
-  state = initialState;
-  let previous;
+const render = (rootNode, rootComponent) => {
+  const rootElement = document.querySelector(rootNode);
 
-  const mappedMethods = props =>
-    Object.keys(methods).reduce(
-      (acc, key) => ({
-        ...acc,
-        [key]: (...args) => {
-          state = methods[key](state, ...args);
-          const nextNode = template({
-            ...props,
-            ...state,
-            methods: mappedMethods(props)
-          });
-          patch(previous.template, nextNode.template);
-          previous = nextNode; // this prints "Thomas" as firstName :D
-          return state;
-        }
-      }),
-      {}
-    );
+  rootComponent.currentNode = rootComponent.render();
 
-  return props => {
-    previous = template({ ...props, ...state, methods: mappedMethods(props) });
-    return previous;
-  };
+  patch(rootElement, rootComponent.currentNode);
 };
+
+export { Component, render, patch };

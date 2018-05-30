@@ -1,7 +1,26 @@
-import { init } from "./framework";
-import { User } from "./src/user";
+import { Component, render } from "./framework";
 
-const firstName = "Marvin";
-const lastName = "Frachet";
+class User extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: "Marvin" };
+  }
 
-init("#app", User({ firstName, lastName }));
+  handleClick() {
+    const { name } = this.state;
+    this.setState({ name: name === "Marvin" ? "Enchanté" : "Marvin" });
+  }
+
+  render() {
+    const { name } = this.state;
+    const className = name === "Marvin" ? "red" : "black";
+
+    return (
+      <div className={className} onClick={this.handleClick.bind(this)}>
+        Hello {this.state.name}
+      </div>
+    );
+  }
+}
+
+render("#app", new User());
