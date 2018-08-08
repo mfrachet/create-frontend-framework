@@ -32,7 +32,7 @@ On the follow line:
 div`Hello ${firstName} ${lastName} !`;
 ```
 
-`div` is what we call a `tag`. It allows to make some specific computations on the following template litterals.
+`div` is what we call a `tag`. It allows to make some specific computations on the following template literals.
 
 **It's available by default in ES6 without any additional plugins!**
 :::
@@ -73,7 +73,7 @@ const template = div`Hello ${firstName} ${lastName} !`;
 console.log(template); // It prints `Hello Marvin Frachet !`
 ```
 
-It's great, we have now a `tagged template litterals` that is called `div`. As you may have imagined, we'll use it later to display the content in the DOM.
+It's great, we have now a `tagged template literals` that is called `div`. As you may have imagined, we'll use it later to display the content in the DOM.
 
 ## Abstracting for others HTML elements
 

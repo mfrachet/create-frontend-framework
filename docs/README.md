@@ -16,10 +16,12 @@ This website has been built using the awesomness of [Vuepress](https://vuepress.
 
 ---
 
-Oh, and before starting, I let you create an empty folder wherever you want in your machine using something like:
+Oh, and before starting, I let you create a folder wherever you want in your machine using something like:
 
 ```
-$ mkdir my-awesome-framework && cd my-awesome-framework
+$ mkdir my-awesome-framework
+$ cd my-awesome-framework
+$ touch index.js
 ```
 
 [Get started](/templating/intro.html)
