@@ -14,4 +14,12 @@ If you have any question or suggestion concerning this book, please [open an iss
 
 This website has been built using the awesomness of [Vuepress](https://vuepress.vuejs.org/). I suggest you give it a try!
 
+---
+
+Oh, and before starting, I let you create an empty folder wherever you want in your machine using something like:
+
+```
+$ mkdir my-awesome-framework && cd my-awesome-framework
+```
+
 [Get started](/templating/intro.html)

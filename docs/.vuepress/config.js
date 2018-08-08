@@ -8,7 +8,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/templating/intro",
-          "/templating/template-litterals",
+          "/templating/template-literals",
           "/templating/content-in-dom",
           "/templating/first-component"
         ]
