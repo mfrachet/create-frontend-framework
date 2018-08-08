@@ -28,7 +28,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/state/intro",
-          "/state/existing",
+          "/state/in-frameworks",
           "/state/initialize",
           "/state/modifying"
         ]

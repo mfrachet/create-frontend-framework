@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf build/ && parcel build index.js -d build/",
-    "serve": "rm -rf .cache && rm -rf dist && parcel serve index.html",
+    "start": "rm -rf .cache && rm -rf dist && parcel serve index.html",
     "docs": "vuepress dev docs"
   },
   "dependencies": {

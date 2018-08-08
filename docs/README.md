@@ -16,12 +16,14 @@ This website has been built using the awesomness of [Vuepress](https://vuepress.
 
 ---
 
-Oh, and before starting, I let you create a folder wherever you want in your machine using something like:
+Oh and before starting I suggest you clone this simple starter kit. It embeds a `parcel` loader for quick launch to start the exercise:
 
 ```
-$ mkdir my-awesome-framework
-$ cd my-awesome-framework
-$ touch index.js
+$ git clone https://github.com/mfrachet/create-frontend-framework
+$ cd create-frontend-framework
+$ yarn && yarn start
 ```
+
+It should start a white page on [http://localhost:1234/](http://localhost:1234/).
 
 [Get started](/templating/intro.html)
