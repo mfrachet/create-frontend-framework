@@ -1,0 +1,3 @@
+# What is a Virtual DOM?
+
+You've probably heard of Virtual DOM. It's a concept that aims to represent and manipule DOM nodes in plain Javascript objects. Modification would happen only on the virtual tree and be applied only at the end of the process to the real DOM. The main advantage is that it's really really faster than DOM manipulations, and really easy to use. DOM operations can be batched etc...
