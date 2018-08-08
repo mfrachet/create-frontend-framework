@@ -1,10 +1,24 @@
 # Adding Snabbdom
 
-In the previous step, we managed DOM nodes by ourselves. With this solution, we have to manage every kind of DOM modifications, such as text, attribute, children, events etc... It's really time consuming, and more importantly, smarter people have already managed these kind of stuff.
+When we decided to use [template litterals as template engine](/templating/template-literals.html), we have managed to create DOM node by hand, using the standard `document` APIs.
 
-Snabbdom exposes a `h` API, that is quite a common way to use VDOMs.
+It means that it's our responsibility to manage every possible modifications happening on any kind of possible node.
 
-We can now refacto the `./framework/element` to create a virtual dom node:
+In the previous section [what's a VDOM](/vdom/intro.html), we've seen that VDOMs are a great way to manage performances issues dealing with the DOM.
+
+This way, let's make our framework better and rely on [snabbdom](https://github.com/snabbdom/snabbdom) VDOM to handle DOM modifications.
+
+## Install snabbdom
+
+Simply install it from `npm` or `yarn`:
+
+```
+$ yarn install snabbdom
+```
+
+## Delegate the DOM manipulations to snabbdom
+
+We can now refacto the `./framework/element.js` to create a VDOM node instead of a real DOM node:
 
 ```javascript
 import h from "snabbdom/h";
@@ -25,7 +39,26 @@ export const div = createElement("div");
 export const p = createElement("p");
 ```
 
-With our new VDOM, `./framework/index.js` will be slightly simpler. Snabbdom will manage each of the dom operations for us !
+---
+
+::: tip Note on h
+
+`h` is commonly used to define virtual nodes. The `h` means `hyperscript`.
+:::
+
+---
+
+::: tip Note on moving type from tagName to "element"
+
+This will help us manage different operations later, like events. `element` helps to distinguish which kind of interpolated values
+our `tagged template literal` deals with. `template literals` doesn't distinguish DOM nodes or `events` attributes such as `onClick` etc...
+
+[Check this link for more on the type](https://github.com/mfrachet/frontend-example/blob/master/framework/elements/element.reducer.js#L13)
+:::
+
+## Spawning the app with the VDOM
+
+With our new VDOM, `./framework/index.js` will be slightly simpler. [Snabbdom](https://github.com/snabbdom/snabbdom) will manage each of the dom operations for us:
 
 ```javascript
 import * as snabbdom from "snabbdom";
