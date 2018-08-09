@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf build/ && parcel build index.js -d build/",
-    "serve": "rm -rf .cache && rm -rf dist && parcel serve index.html"
+    "start": "rm -rf .cache && rm -rf dist && parcel serve index.html",
+    "docs": "vuepress dev book",
+    "build:docs": "vuepress build book && rm -rf ./docs && mv ./book/.vuepress/dist ./docs"
   },
   "dependencies": {
     "parcel-bundler": "^1.7.1",
@@ -14,6 +16,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "vuepress": "^0.13.1"
   }
 }
