@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How it works in known frameworks? | Creating a frontend framework</title>
+    <meta name="description" content="Just to understand how it works">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a15442d1.css" as="style"><link rel="preload" href="/assets/js/app.e38f8ac6.js" as="script"><link rel="preload" href="/assets/js/9.8c3769f9.js" as="script"><link rel="prefetch" href="/assets/js/2.614cf17f.js"><link rel="prefetch" href="/assets/js/3.e8d5edc7.js"><link rel="prefetch" href="/assets/js/4.59281bfe.js"><link rel="prefetch" href="/assets/js/5.18691a92.js"><link rel="prefetch" href="/assets/js/6.3be547e4.js"><link rel="prefetch" href="/assets/js/7.57756851.js"><link rel="prefetch" href="/assets/js/8.ece204c8.js"><link rel="prefetch" href="/assets/js/10.b62ad024.js"><link rel="prefetch" href="/assets/js/11.2a528aae.js"><link rel="prefetch" href="/assets/js/12.b3b6e3e6.js"><link rel="prefetch" href="/assets/js/13.6468635c.js"><link rel="prefetch" href="/assets/js/14.44f23dc6.js"><link rel="prefetch" href="/assets/js/15.b2fe35db.js"><link rel="prefetch" href="/assets/js/16.f39df4d5.js"><link rel="prefetch" href="/assets/js/17.260d4c5e.js"><link rel="prefetch" href="/assets/js/18.984b794c.js"><link rel="prefetch" href="/assets/js/19.1663d317.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a15442d1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Creating a frontend framework</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>Templating</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/templating/intro.html" class="sidebar-link">What's a template?</a></li><li><a href="/templating/template-literals.html" class="sidebar-link">Template literals as template engine</a></li><li><a href="/templating/content-in-dom.html" class="sidebar-link">Display the template in the DOM</a></li><li><a href="/templating/first-component.html" class="sidebar-link">Creating our first component</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Virtual DOM</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/vdom/intro.html" class="sidebar-link">What is a Virtual DOM?</a></li><li><a href="/vdom/existing.html" class="sidebar-link">Existing VDOM implementations</a></li><li><a href="/vdom/adding-snabbdom.html" class="sidebar-link">Adding Snabbdom</a></li><li><a href="/vdom/event-handling.html" class="sidebar-link">Event Handling with Snabbdom</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>State management</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/state/intro.html" class="sidebar-link">What is the state of an app?</a></li><li><a href="/state/in-frameworks.html" class="active sidebar-link">How it works in known frameworks?</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/state/in-frameworks.html#state-in-vuejs" class="sidebar-link">State in Vuejs</a></li><li class="sidebar-sub-header"><a href="/state/in-frameworks.html#state-in-angular" class="sidebar-link">State in Angular</a></li><li class="sidebar-sub-header"><a href="/state/in-frameworks.html#state-in-react" class="sidebar-link">State in React</a></li></ul></li><li><a href="/state/initialize.html" class="sidebar-link">Our own state management system</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Bring it all together</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/allin/real-world-component.html" class="sidebar-link">Real world components</a></li><li><a href="/allin/modifying.html" class="sidebar-link">Modify the state of our app</a></li><li><a href="/allin/change-detection.html" class="sidebar-link">Change detection</a></li><li><a href="/allin/all-together.html" class="sidebar-link">Bring it all together</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="how-it-works-in-known-frameworks"><a href="#how-it-works-in-known-frameworks" aria-hidden="true" class="header-anchor">#</a> How it works in known frameworks?</h1> <p><code>State</code> is the essence of frameworks. It's what <strong>changes</strong> in applications.</p> <p>Each <code>state</code> modification will make the concerned component to <code>re-render</code> its template with the according <code>state</code> new values.</p> <h2 id="state-in-vuejs"><a href="#state-in-vuejs" aria-hidden="true" class="header-anchor">#</a> State in Vuejs</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> component <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// initial state</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> firstName<span class="token punctuation">:</span> <span class="token string">&quot;Marvin&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">changeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// modifying the state</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> <span class="token string">&quot;Thomas&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="state-in-angular"><a href="#state-in-angular" aria-hidden="true" class="header-anchor">#</a> State in Angular</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// initial state</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> <span class="token string">&quot;Marvin&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// modifying the state</span>
+<span class="token function">handleClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> <span class="token string">&quot;Thomas&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="state-in-react"><a href="#state-in-react" aria-hidden="true" class="header-anchor">#</a> State in React</h2> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token comment">// initial state</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span> firstName<span class="token punctuation">:</span> <span class="token string">&quot;Marvin&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// change detection</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> firstName<span class="token punctuation">:</span> <span class="token string">&quot;Thomas&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/state/intro.html" class="prev">
+          What is the state of an app?
+        </a></span> <span class="next"><a href="/state/initialize.html">
+          Our own state management system
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/9.8c3769f9.js" defer></script><script src="/assets/js/app.e38f8ac6.js" defer></script>
+  </body>
+</html>

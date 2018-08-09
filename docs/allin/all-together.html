@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bring it all together | Creating a frontend framework</title>
+    <meta name="description" content="Just to understand how it works">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a15442d1.css" as="style"><link rel="preload" href="/assets/js/app.e38f8ac6.js" as="script"><link rel="preload" href="/assets/js/5.18691a92.js" as="script"><link rel="prefetch" href="/assets/js/9.8c3769f9.js"><link rel="prefetch" href="/assets/js/2.614cf17f.js"><link rel="prefetch" href="/assets/js/3.e8d5edc7.js"><link rel="prefetch" href="/assets/js/4.59281bfe.js"><link rel="prefetch" href="/assets/js/6.3be547e4.js"><link rel="prefetch" href="/assets/js/7.57756851.js"><link rel="prefetch" href="/assets/js/8.ece204c8.js"><link rel="prefetch" href="/assets/js/10.b62ad024.js"><link rel="prefetch" href="/assets/js/11.2a528aae.js"><link rel="prefetch" href="/assets/js/12.b3b6e3e6.js"><link rel="prefetch" href="/assets/js/13.6468635c.js"><link rel="prefetch" href="/assets/js/14.44f23dc6.js"><link rel="prefetch" href="/assets/js/15.b2fe35db.js"><link rel="prefetch" href="/assets/js/16.f39df4d5.js"><link rel="prefetch" href="/assets/js/17.260d4c5e.js"><link rel="prefetch" href="/assets/js/18.984b794c.js"><link rel="prefetch" href="/assets/js/19.1663d317.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a15442d1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Creating a frontend framework</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><!---->  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>Templating</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/templating/intro.html" class="sidebar-link">What's a template?</a></li><li><a href="/templating/template-literals.html" class="sidebar-link">Template literals as template engine</a></li><li><a href="/templating/content-in-dom.html" class="sidebar-link">Display the template in the DOM</a></li><li><a href="/templating/first-component.html" class="sidebar-link">Creating our first component</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>Virtual DOM</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/vdom/intro.html" class="sidebar-link">What is a Virtual DOM?</a></li><li><a href="/vdom/existing.html" class="sidebar-link">Existing VDOM implementations</a></li><li><a href="/vdom/adding-snabbdom.html" class="sidebar-link">Adding Snabbdom</a></li><li><a href="/vdom/event-handling.html" class="sidebar-link">Event Handling with Snabbdom</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>State management</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/state/intro.html" class="sidebar-link">What is the state of an app?</a></li><li><a href="/state/in-frameworks.html" class="sidebar-link">How it works in known frameworks?</a></li><li><a href="/state/initialize.html" class="sidebar-link">Our own state management system</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>Bring it all together</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/allin/real-world-component.html" class="sidebar-link">Real world components</a></li><li><a href="/allin/modifying.html" class="sidebar-link">Modify the state of our app</a></li><li><a href="/allin/change-detection.html" class="sidebar-link">Change detection</a></li><li><a href="/allin/all-together.html" class="active sidebar-link">Bring it all together</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="bring-it-all-together"><a href="#bring-it-all-together" aria-hidden="true" class="header-anchor">#</a> Bring it all together</h1> <p>In <code>./framework/index.js</code>, add :</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> snabbdom <span class="token keyword">from</span> <span class="token string">&quot;snabbdom&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> patch <span class="token operator">=</span> snabbdom<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;snabbdom/modules/eventlisteners&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">default</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">init</span> <span class="token operator">=</span> <span class="token punctuation">(</span>selector<span class="token punctuation">,</span> component<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> app <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">patch</span><span class="token punctuation">(</span>app<span class="token punctuation">,</span> component<span class="token punctuation">.</span>template<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  template<span class="token punctuation">,</span>
+  methods <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  initialState <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  state <span class="token operator">=</span> initialState<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> previous<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">mappedMethods</span> <span class="token operator">=</span> props <span class="token operator">=&gt;</span>
+    Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>methods<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>
+      <span class="token punctuation">(</span>acc<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token operator">...</span>acc<span class="token punctuation">,</span>
+        <span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          state <span class="token operator">=</span> methods<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> nextNode <span class="token operator">=</span> <span class="token function">template</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token operator">...</span>props<span class="token punctuation">,</span>
+            <span class="token operator">...</span>state<span class="token punctuation">,</span>
+            methods<span class="token punctuation">:</span> <span class="token function">mappedMethods</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">patch</span><span class="token punctuation">(</span>previous<span class="token punctuation">.</span>template<span class="token punctuation">,</span> nextNode<span class="token punctuation">.</span>template<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          previous <span class="token operator">=</span> nextNode<span class="token punctuation">;</span> <span class="token comment">// this prints &quot;Thomas&quot; as firstName :D</span>
+          <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> props <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    previous <span class="token operator">=</span> <span class="token function">template</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span>props<span class="token punctuation">,</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> methods<span class="token punctuation">:</span> <span class="token function">mappedMethods</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> previous<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/allin/change-detection.html" class="prev">
+          Change detection
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/5.18691a92.js" defer></script><script src="/assets/js/app.e38f8ac6.js" defer></script>
+  </body>
+</html>
