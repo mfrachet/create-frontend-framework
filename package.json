@@ -8,7 +8,7 @@
     "build": "rm -rf build/ && parcel build index.js -d build/",
     "start": "rm -rf .cache && rm -rf dist && parcel serve index.html",
     "docs": "vuepress dev book",
-    "build:docs": "vuepress build book && mv ./book/.vuepress/dist ./docs"
+    "build:docs": "vuepress build book && rm -rf ./docs && mv ./book/.vuepress/dist ./docs"
   },
   "dependencies": {
     "parcel-bundler": "^1.7.1",
