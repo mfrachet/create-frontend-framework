@@ -1,6 +1,6 @@
 # Modify the state of our app
 
-We're now able to add some behaviour to all of our components, at one place ! It's time to add some methods inside the component.
+We're now able to add some behavior to all of our components, at one place ! It's time to add some methods inside the component.
 
 In `./framework/index.js`, add the methods props:
 
@@ -29,7 +29,7 @@ const template = ({ firstName, lastName, methods }) =>
 export const User = createComponent({ template, methods });
 ```
 
-We can now make some special behaviour using these methods ! Why not to be able to modify the props ? In the `./framework/index.js`, add:
+We can now make some special behavior using these methods ! Why not to be able to modify the props ? In the `./framework/index.js`, add:
 
 ```javascript
 import * as snabbdom from "snabbdom";

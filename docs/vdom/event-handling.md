@@ -79,7 +79,7 @@ const createReducer = args => (acc, currentString, index) => {
   const currentArg = args[index];
 
   /**
-   * Here, we define the behaviour of an event node and this
+   * Here, we define the behavior of an event node and this
    * is where the type is important :D
    */
   if (currentArg && currentArg.type === "event") {

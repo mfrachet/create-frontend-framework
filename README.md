@@ -6,17 +6,17 @@ _This project aims to provide a step by step implementation of a "frontend frame
 
 ---
 
-* [Template](#template)
-  * [Template litterals as template engine](#template-litterals-as-template-engine)
-  * [Display content in the DOM](#display-content-in-the-dom)
-  * [Our first component](#our-first-component)
-* [Using an existing virtual DOM library](#using-an-existing-virtual-dom-library)
-  * [Adding Snabbdom](#adding-snabbdom)
-  * [Event handling](#event-handling)
-* [State management](#state-management)
-  * [Using methods inside the component](#using-methods-inside-the-component)
-  * [Modifying the component props with state](#modifying-the-component-props-with-state)
-* [Last step bringing it all together](#last-step-bringing-it-all-together)
+- [Template](#template)
+  - [Template litterals as template engine](#template-litterals-as-template-engine)
+  - [Display content in the DOM](#display-content-in-the-dom)
+  - [Our first component](#our-first-component)
+- [Using an existing virtual DOM library](#using-an-existing-virtual-dom-library)
+  - [Adding Snabbdom](#adding-snabbdom)
+  - [Event handling](#event-handling)
+- [State management](#state-management)
+  - [Using methods inside the component](#using-methods-inside-the-component)
+  - [Modifying the component props with state](#modifying-the-component-props-with-state)
+- [Last step bringing it all together](#last-step-bringing-it-all-together)
 
 ---
 
@@ -274,7 +274,7 @@ const initialState = {
 const createReducer = args => (acc, currentString, index) => {
   const currentArg = args[index];
 
-  // Here, we define the behaviour of an event node
+  // Here, we define the behavior of an event node
   if (currentArg && currentArg.type === "event") {
     return { ...acc, on: { click: currentArg.click } };
   }
@@ -330,9 +330,9 @@ const t2State = transform(t1State, { lastName: "Thomas" });
 
 Every frontend framework uses its own internal way to `transform` state. For the sake of learning and clarity, I'll try to stick as much as possible to the previous definition.
 
-For now, we need to create a shared behaviour between every of our components: we need to make any created component able to manage its own internal state.
+For now, we need to create a shared behavior between every of our components: we need to make any created component able to manage its own internal state.
 
-In functional programming, when we want to add a specific and shared behaviour to a function, we use to wrap it in another function, called HOF, a higher order function.
+In functional programming, when we want to add a specific and shared behavior to a function, we use to wrap it in another function, called HOF, a higher order function.
 
 In `./framework/index.js`, create a function called `createComponent` that will allow the state management:
 
@@ -373,7 +373,7 @@ export const User = createComponent({ template });
 
 ## Using methods inside the component
 
-We're now able to add some behaviour to all of our components, at one place ! It's time to add some methods inside the component.
+We're now able to add some behavior to all of our components, at one place ! It's time to add some methods inside the component.
 
 In `./framework/index.js`, add the methods props:
 
@@ -404,7 +404,7 @@ export const User = createComponent({ template, methods });
 
 ## Modifying the component props with state
 
-We can now make some special behaviour using these methods ! Why not to be able to modify the props ? In the `./framework/index.js`, add:
+We can now make some special behavior using these methods ! Why not to be able to modify the props ? In the `./framework/index.js`, add:
 
 ```javascript
 import * as snabbdom from "snabbdom";

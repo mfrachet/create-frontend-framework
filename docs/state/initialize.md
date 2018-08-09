@@ -1,40 +1,54 @@
-# Adding some state in our app
+# Our own state management system
 
-In functional programming, when we want to add a specific and shared behaviour to a function, we use to wrap it in another function, called HOF, a higher order function.
+## What is our approach?
 
-In `./framework/index.js`, create a function called `createComponent` that will allow the state management:
+I suggest we take the approach described previously in [introduction to state, representation with code](/state/intro.html#representation-with-code):
 
 ```javascript
-import * as snabbdom from "snabbdom";
-const patch = snabbdom.init([
-  require("snabbdom/modules/eventlisteners").default
-]);
+const t1State = { firstName: "Marvin", lastName: "Frachet" };
 
-export const init = (selector, component) => {
-  const app = document.querySelector(selector);
-  patch(app, component.template);
-};
-
-export const createComponent = ({ template, methods = {} }) => props =>
-  template(props);
+const t2State = transform(t1State, { lastName: "Thomas" });
+// t2State is now { firstName: "Marvin", lastName: "Thomas" }
 ```
 
-For now, this function only displays the template, let's make it incrementally.
+We're going to create function that will accept two arguments: the current state of the component and a parameter. This parameter will help
+us modifying the state from context.
 
-Then make our `User` component a real `OurFrameworkName` oriented component (like `extends React`, `new Vue` or `@Component` in other frameworks).
+## Initial state value
 
-In the `./src/user.js`, simply wrap the `User` function with our previously `createComponent` one:
+Every application may have an initial state value. It helps for consistency and to avoid multiple safety checks on `undefined` types.
+Let's create a simple object that will represent our initial component state of `./src/user.js`
 
 ```javascript
-import { createComponent } from "../framework";
-import { div } from "../framework/element";
-import { onClick } from "../framework/event";
+const initialState = { firstName: "Marvin", lastName: "Frachet" };
+```
 
-const firstName = "Marvin";
-const lastName = "Frachet";
+## Mutating functions
 
-const template = ({ firstName, lastName }) =>
-  div`${onClick(() => alert(firstName))} Hello ${firstName} ${lastName}`;
+During the application life cycle, we want the initial state to mutate. Here we're going to define the simplest function to make the previous
+state mutate according to some parameters:
 
-export const User = createComponent({ template });
+```javascript
+const changeName = (state, firstName) => ({ ...state, firstName });
+```
+
+It takes the current state as first parameters. The other parameters are the different `variable` parameters that will allow for the state modification.
+
+For example:
+
+```javascript
+const newState = changeName(initialState, "Thomas");
+
+console.log(newState);
+// prints { firstName: "Thomas", lastName: "Frachet" }
+```
+
+Let's create an object called `methods` that represents a set of mutating actions:
+
+```javascript
+const initialState = { firstName: "Marvin", lastName: "Frachet" };
+
+const methods = {
+  changeName: (state, firstName) => ({ ...state, firstName });
+};
 ```

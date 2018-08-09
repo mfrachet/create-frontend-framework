@@ -26,17 +26,17 @@ module.exports = {
       {
         title: "State management",
         collapsable: false,
-        children: [
-          "/state/intro",
-          "/state/in-frameworks",
-          "/state/initialize",
-          "/state/modifying"
-        ]
+        children: ["/state/intro", "/state/in-frameworks", "/state/initialize"]
       },
       {
         title: "Bring it all together",
         collapsable: false,
-        children: ["/allin/all-together"]
+        children: [
+          "/allin/real-world-component",
+          "/allin/modifying",
+          "/allin/change-detection",
+          "/allin/all-together"
+        ]
       }
     ]
   }
