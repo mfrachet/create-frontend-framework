@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/create-frontend-framework/",
   title: "Creating a frontend framework",
   description: "Just to understand how it works",
   ga: "UA-123673201-1",
