@@ -35,8 +35,8 @@ module.exports = {
         collapsable: false,
         children: [
           "/allin/real-world-component",
-          "/allin/modifying",
           "/allin/change-detection",
+          "/allin/modifying",
           "/allin/all-together"
         ]
       }

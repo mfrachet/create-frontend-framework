@@ -1,18 +1,28 @@
 # Real world components
 
+## Creating component in known frameworks
+
+We now need to bind our `state` to the `template literals`.
+
 I don't know if you've minded it but every existing framework has its own way to create components:
 
 - In Angular, we create a class decorated with `@Component`
 - In React, we extend the `React.Component` class
 - In Vuejs, we create `new Vue()` instances
 
-The reason of this: it's behind these definitions that the magic occurs.
+It's time to create our owns.
 
-It's time to create our own source of magic :D.
+## Creating our own definition of component
 
-In functional programming, when we want to add a specific and shared behavior to a function, we use to wrap it in another function, called HOF, a higher order function.
+The aim of this part is to beeing able to create something that would look like:
 
-In `./framework/index.js`, create a function called `createComponent` that will allow the state management:
+```javascript
+const User = createComponent({ template, methods, initialState });
+```
+
+Let's do this! Open `./framework/index.js` and
+
+In `./framework/index.js`, create a function called `createComponent` that looks like:
 
 ```javascript
 import * as snabbdom from "snabbdom";
@@ -25,15 +35,26 @@ export const init = (selector, component) => {
   patch(app, component.template);
 };
 
+// Add this two lines
 export const createComponent = ({ template, methods = {} }) => props =>
   template(props);
 ```
 
-For now, this function only displays the template, let's make it incrementally.
+---
 
-Then make our `User` component a real `OurFrameworkName` oriented component (like `extends React`, `new Vue` or `@Component` in other frameworks).
+::: tip
+`createComponent` is a curried function. It's a function `({ template, methods = {} }) =>` that returns a function `props =>`.
 
-In the `./src/user.js`, simply wrap the `User` function with our previously `createComponent` one:
+It's a common practice in functional programming to create partial functions that share the same behaviors.
+
+For example, our `createCompoent` doesn't return a component. It returns a component `definition`. `props =>` is actually the component.
+:::
+
+---
+
+Actually, this function doesn't do anything special except displaying the template of the component.
+
+Open now `./src/user.js` and make our `User` a real component:
 
 ```javascript
 import { createComponent } from "../framework";
@@ -48,3 +69,5 @@ const template = ({ firstName, lastName }) =>
 
 export const User = createComponent({ template });
 ```
+
+Everything you should the same as previously, except that now, we have a block where we can manage some internal behaviours: our `createComponent` function!

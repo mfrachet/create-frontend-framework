@@ -39,6 +39,6 @@ handleClick() {
 // initial state
 this.state = { firstName: "Marvin" };
 
-// change detection
+// modifying the state
 this.setState({ firstName: "Thomas" });
 ```
