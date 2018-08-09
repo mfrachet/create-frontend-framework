@@ -4,6 +4,15 @@ module.exports = {
   ga: "UA-123673201-1",
   serviceWorker: true,
   themeConfig: {
+    nav: [
+      {
+        text: "LinkedIn",
+        link: "https://www.linkedin.com/in/marvin-frachet-49165365/"
+      },
+      { text: "Twitter", link: "https://twitter.com/mfrachet" },
+      { text: "Github", link: "https://github.com/mfrachet" },
+      { text: "Medium", link: "https://medium.com/@mfrachet" }
+    ],
     sidebar: [
       {
         title: "Templating",
@@ -39,6 +48,11 @@ module.exports = {
           "/allin/modifying",
           "/allin/all-together"
         ]
+      },
+      {
+        title: "What's next?",
+        collapsable: false,
+        children: ["/next/other-feature"]
       }
     ]
   }

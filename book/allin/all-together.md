@@ -1,6 +1,8 @@
 # Bring it all together
 
-In `./framework/index.js`, add :
+This is the last part of the tutorial. This provides the VDOM comparison and DOM patching when a `mutation` function is called.
+
+Then the component state is handled and the component rerendered. Thanks to the VDOM, the dom is modified **only if necessary**.
 
 ```javascript
 import * as snabbdom from "snabbdom";

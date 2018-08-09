@@ -1,6 +1,6 @@
 # Don't be afraid, it will be fun
 
-Hey guys! I'm Marvin Frachet, a french frontend developer.
+Hey guys! I'm [Marvin Frachet](https://www.linkedin.com/in/marvin-frachet-49165365/), a french frontend developer.
 
 I am working on multiple frontend technologies from [React](https://reactjs.org/) & [React Native](https://facebook.github.io/react-native/) to [Angular](https://angular.io/) & [Vuejs](https://vuejs.org/).
 
@@ -12,7 +12,17 @@ and how we can build something that _works_ (it's not competitive on the market)
 
 If you have any question or suggestion concerning this book, please [open an issue to help the community!](https://github.com/mfrachet/create-frontend-framework/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
-This website has been built using the awesomness of [Vuepress](https://vuepress.vuejs.org/). I suggest you give it a try!
+This website has been built using the awesomeness of [Vuepress](https://vuepress.vuejs.org/). I suggest you give it a try!
+
+[By the way, don't forget to star this repository if you've liked it!](https://github.com/mfrachet/create-frontend-framework)
+
+# What I can expect from this?
+
+You'll be able to create a framework that allows you for the creation of such a (tiny) app:
+
+![Pokeworld!](./example.gif)
+
+It's available here: [https://mfrachet.github.io/frontend-example/](https://mfrachet.github.io/frontend-example/)
 
 ---
 

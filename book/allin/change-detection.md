@@ -63,3 +63,5 @@ this.state = { firstName: "Marvin" };
 // change detection is triggered manually
 this.setState({ firstName: "Thomas" });
 ```
+
+We're going to use te React approach in our application for the sake of simplicity :)
