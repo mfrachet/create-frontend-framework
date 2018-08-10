@@ -1,7 +1,8 @@
 module.exports = {
   base: "/create-frontend-framework/",
   title: "Frontend framework",
-  description: "Just to understand how it works",
+  description:
+    "Build a frontend framework from scratch, just to understand how it works",
   ga: "UA-123673201-1",
   serviceWorker: true,
   themeConfig: {
@@ -19,6 +20,7 @@ module.exports = {
       { text: "Medium", link: "https://medium.com/@mfrachet" }
     ],
     sidebar: [
+      "/intro",
       {
         title: "Templating",
         collapsable: false,
