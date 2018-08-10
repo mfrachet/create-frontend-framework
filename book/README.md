@@ -18,7 +18,11 @@ This website has been built using the awesomeness of [Vuepress](https://vuepress
 
 # What I can expect from this?
 
-You'll be able to create a framework that allows you for the creation of such a (tiny) app:
+This exercice will make you create this little app. Click on the label to see the transformation appear:
+
+<iframe src="https://codesandbox.io/embed/5zjpv8zl8p" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+It's a really simple app, but check what I've built with the approach presented in this tutorial:
 
 ![Pokeworld!](./example.gif)
 

@@ -61,8 +61,7 @@ import { createComponent } from "../framework";
 import { div } from "../framework/element";
 import { onClick } from "../framework/event";
 
-const firstName = "Marvin";
-const lastName = "Frachet";
+const initialState = { firstName: "Marvin", lastName: "Frachet" };
 
 const template = ({ firstName, lastName }) =>
   div`${onClick(() => alert(firstName))} Hello ${firstName} ${lastName}`;

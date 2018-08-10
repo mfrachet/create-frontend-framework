@@ -49,6 +49,6 @@ Let's create an object called `methods` that represents a set of mutating action
 const initialState = { firstName: "Marvin", lastName: "Frachet" };
 
 const methods = {
-  changeName: (state, firstName) => ({ ...state, firstName });
+  changeName: (state, firstName) => ({ ...state, firstName })
 };
 ```
