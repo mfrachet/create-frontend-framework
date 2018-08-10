@@ -5,6 +5,10 @@ module.exports = {
   ga: "UA-123673201-1",
   serviceWorker: true,
   themeConfig: {
+    algolia: {
+      apiKey: "9b4d89fd66d9b91c409f78836ef547e3",
+      indexName: "mfrachet_frontend_framework"
+    },
     nav: [
       {
         text: "LinkedIn",
