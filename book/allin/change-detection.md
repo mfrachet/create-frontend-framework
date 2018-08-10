@@ -1,10 +1,10 @@
 # Change detection
 
-It's great! We have now the `template` and the `state` of our application encapsulated in a real world component thanks to `createComponent`!
+It's great! We now have the `template` and the `state` of our application encapsulated in a real world component thanks to `createComponent`!
 
 The next step is to find a way to `trigger` `state` modifications and to display them in the `template`.
 
-This is what we commonly call `change detection`: it's a simple way to tell the framework **Hey! Re-display information, they have changed!**
+This is what we commonly call `change detection`: it's a way to tell the framework **Hey! Re-display information, they have changed!**
 
 ## Change detection in Vuejs
 
@@ -29,15 +29,14 @@ const component = new View({
 
 ## Change detection in Angular
 
-Angular has adopted another approach. They started from this assumptions: any modification of the state is applied
-thanks to `asynchronous` handling.
+Angular has adopted another approach. They started from the assumption that any modification of the state is applied
+thanks to `asynchronous` events.
 
-For exemple, when we type information in an input, the event handling is asynchronous. It's the same when users click a button.
+For example, when we type information in an input, the event is handled asynchronously. It's the same for any user interactions (click, input, focus, blur etc...).
 
-This way the team have created a project called [`zone.js`](https://github.com/angular/zone.js/) that rewrites every asynchronous handler of the browser
-(monkey-patching) to know **when** it has to trigger rendering cycle.
+From there, they decided to create a library that listens for asynchronous events dispatched by the application. The module is called [`zone.js`](https://github.com/angular/zone.js/) and **rewrites (monkey patching) every of the asynchronous browser methods** to get notified when such events are triggered.
 
-The behavior acts from top to bottom on the tree component: it means that **each component is visited and knows if it has to rerender or not**.
+`zonejs` acts from top to bottom: when it catches an async event, it tells the components (from top to bottom) to check there internal state if it has changed since the last change detection cycle.
 
 ```html
 <!-- Asynchronous click event that triggers a change detection cycle thanks to zone.js -->
@@ -54,8 +53,7 @@ changeName() {
 
 Change detection cycles are managed explicitly on React. We have to tell the framework that we want to change some data before it actually changes.
 
-The idea is simple, each time `setState` is called, `React` created a new VDOM of a component with the new state. Then the current and the new VDOM are compared and
-**differences (if there are?)** are concretely applied to the DOM.
+The idea is simple: each time `setState` is called, `React` created a new VDOM from a component with the new state. Then the current and the new VDOM are compared and **differences (if there are?)** are concretely applied to the DOM.
 
 ```jsx
 this.state = { firstName: "Marvin" };

@@ -7,7 +7,7 @@ _This project aims to provide a step by step implementation of a "frontend frame
 ---
 
 - [Template](#template)
-  - [Template litterals as template engine](#template-litterals-as-template-engine)
+  - [Template literals as template engine](#template-literals-as-template-engine)
   - [Display content in the DOM](#display-content-in-the-dom)
   - [Our first component](#our-first-component)
 - [Using an existing virtual DOM library](#using-an-existing-virtual-dom-library)
@@ -24,9 +24,9 @@ _This project aims to provide a step by step implementation of a "frontend frame
 
 _Available at `$ git checkout step-1`_
 
-## Template litterals as template engine
+## Template literals as template engine
 
-The first step is to create a folder and a file at `./framework/element.js`. We'll use template litterals a template engine. Let's create our first template litteral handler called `div`:
+The first step is to create a folder and a file at `./framework/element.js`. We'll use template literals a template engine. Let's create our first template literal handler called `div`:
 
 ```javascript
 const div = (strings, ...args) => console.log(strings, args);
@@ -43,7 +43,7 @@ Run the following command to check the result of such a bunch of code:
 $ node ./framework/element.js
 ```
 
-While using templat litterals, the first argument is an array of strings corresponding to the static string of the evaluated element. The second (or n) arguments are the interpolated values. In the previous example, we use destructuring to create an array of the interpolated values because we don't know have much of them exists.
+While using templat literals, the first argument is an array of strings corresponding to the static string of the evaluated element. The second (or n) arguments are the interpolated values. In the previous example, we use destructuring to create an array of the interpolated values because we don't know have much of them exists.
 
 Let's use `Array.reduce` to create a real string with the static and interpolated ones:
 

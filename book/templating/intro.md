@@ -4,7 +4,7 @@
 
 For example, the following templates of the different existing frameworks aim to say `Hello` to somebody. It's easy to read and informative.
 
-There are actually no "way to go" while dealing with templates. Every frameworks implements its own way to do it. But what's interesting here is that
+There is no "way to go" while dealing with templates and template engines. Every framework implements its own system. But the interesting thing is that
 they all use a _superset_ of HTML ([declarative programming](https://stackoverflow.com/questions/129628/what-is-declarative-programming)).
 
 ## Template in Vuejs
@@ -17,7 +17,7 @@ they all use a _superset_ of HTML ([declarative programming](https://stackoverfl
 
 ## Template in Angular
 
-It's the same syntax as Vuejs one
+It's the same syntax as Vuejs
 
 ```html
 <template>
@@ -27,7 +27,7 @@ It's the same syntax as Vuejs one
 
 ## Template in React
 
-Templating in React is made using an extension of Javascript called [JSX](https://reactjs.org/docs/introducing-jsx.html). It provides a declarative API that is widely inspired by HTML syntax
+Templating in React is made using an extension of Javascript called [JSX](https://reactjs.org/docs/introducing-jsx.html)
 to display information.
 
 ```jsx

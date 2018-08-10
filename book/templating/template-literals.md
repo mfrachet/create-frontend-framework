@@ -2,7 +2,7 @@
 
 ## Why template literals?
 
-In [What's a template?](/templating/intro.html), I've briefly shown some of the existing framework templating systems. Since building the
+In [What's a template?](/templating/intro.html) I've briefly shown some of the existing framework templating systems. Since building the
 different underlying template engines (aka the tools that know how to display the `firstName` in the template) are a bit complex,
 I will show you an alternative using a less tricky approach that comes from the standards: [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
@@ -10,7 +10,7 @@ I will show you an alternative using a less tricky approach that comes from the 
 
 ## Our first HTML elements
 
-Let's put our hands in!
+Let's put our hands on!
 
 The first step is to create a folder and a file at `./framework/element.js`:
 
@@ -71,6 +71,22 @@ const lastName = "Frachet";
 
 const template = div`Hello ${firstName} ${lastName} !`;
 console.log(template); // It prints `Hello Marvin Frachet !`
+```
+
+If you're now familiar with `Array.reduce`, it's the same as:
+
+```javascript
+const div = (strings, ...args) => {
+  let acc = "";
+
+  for(const currentString of strings) {
+    const interpolatedString = (args[index] || ""):
+    acc += currentString + interpolatedString;
+  }
+
+  return acc;
+
+};
 ```
 
 It's great, we have now a `tagged template literals` that is called `div`. As you may have imagined, we'll use it later to display the content in the DOM.

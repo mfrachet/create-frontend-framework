@@ -28,7 +28,19 @@ init("#app", div`Hello ${firstName} ${lastName}`);
 // init("#app", p`Hello ${firstName} ${lastName}`); works as simply as moving div to p
 ```
 
-We don't need `console.log` and template creation anymore but simply need to export the `p` and `div` elements, let's remove the noise all around in `./framework/element.js`:
+---
+
+::: tip Note on #app
+If you have used the git repository with the parcel bundles, you can see an index.html at the root.
+
+It already contains a `<div id="app"></div>` so you don't have to define it.
+:::
+
+---
+
+We don't need the extra `console.log` and template creation anymore but simply need to export the `p` and `div` elements.
+
+Let's remove the noise all around in `./framework/element.js`:
 
 ```javascript
 const createElement = tagName => (strings, ...args) => ({
@@ -43,10 +55,19 @@ export const div = createElement("div");
 export const p = createElement("p");
 ```
 
+---
+
+::: tip
+For the purpose of this exercice, I won't show you how to create every HTML component. But since we have already built
+the `createElement` function, you can add any one of them :)
+:::
+
+---
+
 Start the application using:
 
 ```
 $ yarn start
 ```
 
-and check that it displays `Hello Marvin Frachet`
+and check that it displays `Hello Marvin Frachet` on [http://localhost:1234/](http://localhost:1234/).

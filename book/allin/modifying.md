@@ -1,6 +1,6 @@
 # Modify the state of our app
 
-We have now to implement our own `change detection` mechanism.
+It's our time to work with `change detection` mechanisms!
 
 ## Mutating functions in component definition
 
@@ -14,11 +14,14 @@ We're going to give them a real aim :)
 
 ---
 
-In `./framework/index.js`, add the methods props:
+In `./framework/index.js`, add the methods props to the template argument:
 
 ```javascript
-export const createComponent = ({ template, methods = {} }) => props =>
-  template({ ...props, methods });
+export const createComponent = ({
+  template,
+  methods = {},
+  initialState = {}
+}) => props => template({ ...props, methods });
 ```
 
 And guess what? We can now call our `methods` directly in our `./src/user.js` component!
@@ -39,7 +42,7 @@ const template = ({ firstName, lastName, methods }) =>
     methods.changeName("Thomas")
   )} Hello ${firstName} ${lastName}`;
 
-export const User = createComponent({ template, methods });
+export const User = createComponent({ template, methods, initialState });
 ```
 
 ---

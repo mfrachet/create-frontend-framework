@@ -35,15 +35,18 @@ export const init = (selector, component) => {
   patch(app, component.template);
 };
 
-// Add this two lines
-export const createComponent = ({ template, methods = {} }) => props =>
-  template(props);
+// Add the line concerning methods and initialState
+export const createComponent = ({
+  template,
+  methods = {},
+  initialState = {}
+}) => props => template(props);
 ```
 
 ---
 
 ::: tip
-`createComponent` is a curried function. It's a function `({ template, methods = {} }) =>` that returns a function `props =>`.
+`createComponent` is a curried function. It's a function `({ template, methods = {}, initialState = {} }) =>` that returns a function `props =>`.
 
 It's a common practice in functional programming to create partial functions that share the same behaviors.
 
@@ -61,12 +64,22 @@ import { createComponent } from "../framework";
 import { div } from "../framework/element";
 import { onClick } from "../framework/event";
 
+// initial state of the User component
 const initialState = { firstName: "Marvin", lastName: "Frachet" };
 
+// state mutating actions
+const methods = {
+  changeName: (state, firstName) => ({ ...state, firstName })
+};
+
+// component template
 const template = ({ firstName, lastName }) =>
   div`${onClick(() => alert(firstName))} Hello ${firstName} ${lastName}`;
 
-export const User = createComponent({ template });
+// create a real world component
+export const User = createComponent({ template, methods, initialState });
 ```
 
-Everything you should the same as previously, except that now, we have a block where we can manage some internal behaviours: our `createComponent` function!
+You can now start the application and verify that it **has not changed** anything on the screen.
+
+The step here is to create a blackbox that will allow to enhance the component **transparently**.
