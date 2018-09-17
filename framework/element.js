@@ -26,10 +26,5 @@ export const createElement = (tagName, attrs, ...children) => {
     return createComponent(tagName, attrs, children);
   }
 
-  if (tagName === "img") {
-    console.log(computeAttrs(attrs || {}));
-    console.log(h(tagName, computeAttrs(attrs || {}), children));
-  }
-
   return h(tagName, computeAttrs(attrs || {}), children);
 };

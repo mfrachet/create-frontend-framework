@@ -37,13 +37,19 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.fetchPokemon = this.fetchPokemon.bind(this);
+
     this.state = { pokemon: null };
   }
 
-  componentDidMount() {
-    fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur/")
+  fetchPokemon(name) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
       .then(res => res.json())
       .then(pokemon => this.setState({ pokemon }));
+  }
+
+  componentDidMount() {
+    this.fetchPokemon("bulbasaur");
   }
 
   render() {
@@ -52,7 +58,7 @@ class App extends Component {
       <div>
         <Navbar />
         <Container>
-          <Input />
+          <Input onEnter={this.fetchPokemon} />
           {pokemon ? <Pokemon detail={pokemon} /> : <Loading />}
         </Container>
       </div>

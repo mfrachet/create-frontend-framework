@@ -11,6 +11,10 @@ const attrMapper = {
   onClick: (state, click) => ({
     ...state,
     on: { ...state.on, click }
+  }),
+  onKeyup: (state, keyup) => ({
+    ...state,
+    on: { ...state.on, keyup }
   })
 };
 
