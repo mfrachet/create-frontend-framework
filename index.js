@@ -1,4 +1,6 @@
 import { Component, render } from "./framework";
+// import React, { Component } from "react";
+// import ReactDOM from "react-dom";
 import { Navbar } from "./src/navbar";
 import { Container } from "./src/container";
 import { Input } from "./src/input";
@@ -38,4 +40,5 @@ class App extends Component {
   }
 }
 
+//ReactDOM.render(<App />, document.getElementById("app"));
 render(<App />, document.getElementById("app"));
