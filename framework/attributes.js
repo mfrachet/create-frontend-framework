@@ -1,7 +1,12 @@
 const attrMapper = {
-  className: (state, className) => ({
+  className: (state, classNames) => ({
     ...state,
-    class: { ...state.class, [className]: true }
+    class: {
+      ...state.class,
+      ...classNames
+        .split(" ")
+        .reduce((acc, className) => ({ ...acc, [className]: true }), {})
+    }
   }),
   onClick: (state, click) => ({
     ...state,
@@ -10,7 +15,7 @@ const attrMapper = {
 };
 
 export const mappingAttributes = attrs => (acc, key) => {
-  const nextState = attrMapper[key](acc, attrs[key]);
+  const nextState = attrMapper[key] ? attrMapper[key](acc, attrs[key]) : acc;
   return nextState;
 };
 
