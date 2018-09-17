@@ -12,7 +12,7 @@ const attrMapper = {
     ...state,
     on: { ...state.on, click }
   }),
-  onKeyup: (state, keyup) => ({
+  onKeyUp: (state, keyup) => ({
     ...state,
     on: { ...state.on, keyup }
   })

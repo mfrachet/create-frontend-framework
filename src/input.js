@@ -25,7 +25,7 @@ export class Input extends Component {
           type="text"
           className="form-control"
           placeholder="Enter a pokemon name. Default is bulbasaur"
-          onKeyup={this.handleChange}
+          onKeyUp={this.handleChange}
         />
       </div>
     );

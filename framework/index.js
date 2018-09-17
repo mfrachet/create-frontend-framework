@@ -10,9 +10,7 @@ global.h = createElement;
 
 const patch = snabbdom.init([classModule, eventModule, propsModule]);
 
-const render = (rootNode, RootComponent) => {
-  const rootElement = document.querySelector(rootNode);
+const render = (RootComponent, rootElement) =>
   patch(rootElement, RootComponent);
-};
 
 export { Component, render, patch };

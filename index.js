@@ -5,34 +5,6 @@ import { Input } from "./src/input";
 import { Pokemon } from "./src/pokemon";
 import { Loading } from "./src/loading";
 
-// class User extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { name: "Marvin" };
-//   }
-
-//   componentDidMount() {
-//     console.log("The component has been mounted");
-//   }
-
-//   handleClick() {
-//     const { name } = this.state;
-//     this.setState({ name: name === "Marvin" ? "Enchanté" : "Marvin" });
-//   }
-
-//   render() {
-//     const { name } = this.state;
-//     const className = name === "Marvin" ? "red" : "black";
-
-//     return (
-//       <div className={className} onClick={this.handleClick.bind(this)}>
-//         Hello {this.state.name}
-//         <Text>This is a nested component</Text>
-//       </div>
-//     );
-//   }
-// }
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -66,4 +38,4 @@ class App extends Component {
   }
 }
 
-render("#app", <App />);
+render(<App />, document.getElementById("app"));
