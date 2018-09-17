@@ -11,11 +11,7 @@ const patch = snabbdom.init([classModule, eventModule]);
 
 const render = (rootNode, RootComponent) => {
   const rootElement = document.querySelector(rootNode);
-  const rootComponent = new RootComponent();
-
-  rootComponent.currentNode = rootComponent.render();
-
-  patch(rootElement, rootComponent.currentNode);
+  patch(rootElement, RootComponent);
 };
 
 export { Component, render, patch };

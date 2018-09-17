@@ -16,6 +16,10 @@ class User extends Component {
     this.state = { name: "Marvin" };
   }
 
+  componentDidMount() {
+    console.log("The component has been mounted");
+  }
+
   handleClick() {
     const { name } = this.state;
     this.setState({ name: name === "Marvin" ? "Enchanté" : "Marvin" });
@@ -34,4 +38,4 @@ class User extends Component {
   }
 }
 
-render("#app", User);
+render("#app", <User />);

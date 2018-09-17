@@ -15,6 +15,9 @@ export const createComponent = (Component, attrs, children) => {
   const rendered = component.render();
   rendered.children = rendered.children.concat(snabbdomChildren);
 
+  component.currentNode = rendered;
+  component.componentDidMount && component.componentDidMount();
+
   return rendered;
 };
 
