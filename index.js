@@ -6,7 +6,7 @@ class Text extends Component {
   }
 
   render() {
-    return <span>{this.props.children} in text component</span>;
+    return <div>{this.props.children} in text component</div>;
   }
 }
 
@@ -28,7 +28,7 @@ class User extends Component {
     return (
       <div className={className} onClick={this.handleClick.bind(this)}>
         Hello {this.state.name}
-        <Text>{this.state.name}</Text>
+        <Text>This is a nested component</Text>
       </div>
     );
   }

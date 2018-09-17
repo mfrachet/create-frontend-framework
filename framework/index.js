@@ -5,27 +5,41 @@ import { Component } from "./component";
 import classModule from "snabbdom/modules/class";
 import eventModule from "snabbdom/modules/eventlisteners";
 
-global.h = (TagName, attrs, ...children) => {
-  if (typeof TagName === "function") {
-    const element = new TagName({ children: children.join(""), ...attrs });
-    return h(
-      "div",
-      Object.keys(attrs || {}).reduce(mappingAttributes(attrs), {
-        class: {},
-        on: {}
-      }),
-      element.render()
-    );
-  }
-  return h(
-    TagName,
-    Object.keys(attrs || {}).reduce(mappingAttributes(attrs), {
-      class: {},
-      on: {}
-    }),
-    children
-  );
+const computeAttrs = attrs =>
+  Object.keys(attrs).reduce(mappingAttributes(attrs), {
+    class: {},
+    on: {}
+  });
+
+const createComponent = (TagName, attrs, children) => {
+  const stringChildren = children
+    .filter(child => typeof child === "string")
+    .join("");
+
+  const snabbdomChildren = children.filter(child => typeof child !== "string");
+
+  const element = new TagName({
+    children: stringChildren,
+    ...attrs
+  });
+
+  const rendered = element.render();
+  rendered.children = rendered.children.concat(snabbdomChildren);
+
+  return rendered;
 };
+
+const createElement = (TagName, attrs, ...children) => {
+  const realAttributes = computeAttrs(attrs || {});
+
+  if (typeof TagName === "function") {
+    return createComponent(TagName, realAttributes, children);
+  }
+
+  return h(TagName, realAttributes, children);
+};
+
+global.h = createElement;
 
 const patch = snabbdom.init([classModule, eventModule]);
 
