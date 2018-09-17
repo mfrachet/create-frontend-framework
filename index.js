@@ -1,5 +1,15 @@
 import { Component, render } from "./framework";
 
+class Text extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return <span>{this.props.children} in text component</span>;
+  }
+}
+
 class User extends Component {
   constructor(props) {
     super(props);
@@ -18,9 +28,10 @@ class User extends Component {
     return (
       <div className={className} onClick={this.handleClick.bind(this)}>
         Hello {this.state.name}
+        <Text>{this.state.name}</Text>
       </div>
     );
   }
 }
 
-render("#app", new User());
+render("#app", User);
