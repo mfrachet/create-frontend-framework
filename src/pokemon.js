@@ -6,7 +6,15 @@ export class Pokemon extends Component {
   }
 
   render() {
-    console.log(this.props);
-    return <div>Pokemon view</div>;
+    const {
+      name,
+      sprites: { front_default }
+    } = this.props.detail;
+    return (
+      <div>
+        <h1>{name.toUpperCase()}</h1>
+        <img src={front_default} />
+      </div>
+    );
   }
 }

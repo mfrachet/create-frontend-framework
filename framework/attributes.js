@@ -15,12 +15,16 @@ const attrMapper = {
 };
 
 export const mappingAttributes = attrs => (acc, key) => {
-  const nextState = attrMapper[key] ? attrMapper[key](acc, attrs[key]) : acc;
+  const nextState = attrMapper[key]
+    ? attrMapper[key](acc, attrs[key])
+    : { ...acc, props: { ...acc.props, [key]: attrs[key] } };
+
   return nextState;
 };
 
 export const computeAttrs = attrs =>
   Object.keys(attrs).reduce(mappingAttributes(attrs), {
     class: {},
-    on: {}
+    on: {},
+    props: {}
   });
