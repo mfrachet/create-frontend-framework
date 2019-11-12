@@ -12,7 +12,7 @@ Change detection in Vuejs is managed using `observables`. Every property created
 bound to an `observable`. Each time this value is modified, it's observed and can be handled by the virtual dom accordingly.
 
 ```javascript
-const component = new View({
+const component = new Vue({
   data() {
     return { firstName: "Marvin" };
   },
