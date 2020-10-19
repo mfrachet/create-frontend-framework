@@ -73,7 +73,7 @@ const template = div`Hello ${firstName} ${lastName} !`;
 console.log(template); // It prints `Hello Marvin Frachet !`
 ```
 
-If you're now familiar with `Array.reduce`, it's the same as:
+If you're not familiar with `Array.reduce`, it's the same as:
 
 ```javascript
 const div = (strings, ...args) => {
