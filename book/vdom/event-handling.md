@@ -11,7 +11,7 @@ I would like to extract a function called `createReducer` to make the `createEle
 It won't be that hard: we'll simply extract the `Array.reduce` transformation function somewhere else.
 
 ```javascript
-import h from "snabbdom/h";
+import { h } from "snabbdom/h";
 
 // extract initial value with a template key, some other will appear next ;)
 const initialState = {
@@ -73,7 +73,7 @@ The reason is that we only manage `text` nodes inside our `template engine`.
 We need to modify its code to take care of the `events`:
 
 ```javascript
-import h from "snabbdom/h";
+import { h } from "snabbdom/h";
 
 const initialState = {
   template: "",
