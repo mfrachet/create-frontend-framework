@@ -25,7 +25,7 @@ We can now refacto the `./framework/element.js` to delegate our DOM node creatio
 We're going to deal with `virtual node` thanks to `h` of `snabbdom`:
 
 ```javascript
-import h from "snabbdom/h";
+import { h } from "snabbdom/h";
 
 const createElement = tagName => (strings, ...args) => ({
   type: "element",
