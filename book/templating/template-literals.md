@@ -81,7 +81,7 @@ const div = (strings, ...args) => {
 
   for(let index = 0; index < strings.length; index++) {
     const interpolatedString = (args[index] || "");
-    acc += string[index] + interpolatedString;
+    acc += strings[index] + interpolatedString;
   }
 
   return acc;
