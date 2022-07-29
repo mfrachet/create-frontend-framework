@@ -79,9 +79,9 @@ If you're not familiar with `Array.reduce`, it's the same as:
 const div = (strings, ...args) => {
   let acc = "";
 
-  for(const currentString of strings) {
-    const interpolatedString = (args[index] || ""):
-    acc += currentString + interpolatedString;
+  for(let index = 0; index < strings.length; index++) {
+    const interpolatedString = (args[index] || "");
+    acc += strings[index] + interpolatedString;
   }
 
   return acc;
